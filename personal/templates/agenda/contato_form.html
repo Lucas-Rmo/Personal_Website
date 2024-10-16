@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% if contato.pk %}Editar Contato{% else %}Novo Contato{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if contato.pk %}Salvar Alterações{% else %}Criar Contato{% endif %}</button>
+</form>
+
+<a href="{% url 'contato_list' %}">Voltar para a lista</a>
+
+{% endblock content %}
