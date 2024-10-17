@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{% if lembrete.pk %}Editar Lembrete{% else %}Novo Lembrete{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if lembrete.pk %}Salvar Alterações{% else %}Criar Lembrete{% endif %}</button>
+</form>
+
+<a href="{% url 'lembrete_list' %}">Voltar para a lista</a>
+
+{% endblock content %}
